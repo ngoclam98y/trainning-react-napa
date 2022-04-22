@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/trainning-react-napa/static/css/main.5f7922a6.css",
+    "main.js": "/trainning-react-napa/static/js/main.a4d3aac0.js",
+    "static/js/436.17e5fa9d.chunk.js": "/trainning-react-napa/static/js/436.17e5fa9d.chunk.js",
+    "static/js/403.978b66fd.chunk.js": "/trainning-react-napa/static/js/403.978b66fd.chunk.js",
+    "static/js/796.59338f1d.chunk.js": "/trainning-react-napa/static/js/796.59338f1d.chunk.js",
+    "static/js/787.754aab93.chunk.js": "/trainning-react-napa/static/js/787.754aab93.chunk.js",
+    "static/js/392.ffdc249b.chunk.js": "/trainning-react-napa/static/js/392.ffdc249b.chunk.js",
+    "static/js/313.35678593.chunk.js": "/trainning-react-napa/static/js/313.35678593.chunk.js",
+    "static/js/861.13c9043a.chunk.js": "/trainning-react-napa/static/js/861.13c9043a.chunk.js",
+    "static/media/login.png": "/trainning-react-napa/static/media/login.a702105626682f099b30.png",
+    "index.html": "/trainning-react-napa/index.html",
+    "main.5f7922a6.css.map": "/trainning-react-napa/static/css/main.5f7922a6.css.map",
+    "main.a4d3aac0.js.map": "/trainning-react-napa/static/js/main.a4d3aac0.js.map",
+    "436.17e5fa9d.chunk.js.map": "/trainning-react-napa/static/js/436.17e5fa9d.chunk.js.map",
+    "403.978b66fd.chunk.js.map": "/trainning-react-napa/static/js/403.978b66fd.chunk.js.map",
+    "796.59338f1d.chunk.js.map": "/trainning-react-napa/static/js/796.59338f1d.chunk.js.map",
+    "787.754aab93.chunk.js.map": "/trainning-react-napa/static/js/787.754aab93.chunk.js.map",
+    "392.ffdc249b.chunk.js.map": "/trainning-react-napa/static/js/392.ffdc249b.chunk.js.map",
+    "313.35678593.chunk.js.map": "/trainning-react-napa/static/js/313.35678593.chunk.js.map",
+    "861.13c9043a.chunk.js.map": "/trainning-react-napa/static/js/861.13c9043a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f7922a6.css",
+    "static/js/main.a4d3aac0.js"
+  ]
+}
