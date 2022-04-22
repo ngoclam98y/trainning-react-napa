@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 import Attachment from "./pages/Attachment";
+import Settings from "./pages/Settings";
 
 const Login = React.lazy(() => import("./pages/Login"));
 const LayoutDashBoard = React.lazy(() => import("./layouts/dashboard"));
@@ -41,7 +42,7 @@ export default function Router() {
           path: "setting",
           element: (
             <ProtectedRoute redirectPath="/login" isAllowed={isLogin}>
-              <h1>Setting</h1>
+              <Settings />
             </ProtectedRoute>
           ),
         },
@@ -80,6 +81,6 @@ export default function Router() {
       element: <LayoutDashBoard />,
       children: [{ path: "/", element: <Navigate to="/dashboard/user" /> }],
     },
-    // { path: "*", element: <Navigate to="/404" replace /> },
+    { path: "*", element: <h1>404</h1> },
   ]);
 }

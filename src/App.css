@@ -1,3 +1,8 @@
+/* html,
+body {
+  background: rgb(255, 247, 229);
+} */
+
 .trigger {
   padding: 0 24px;
   font-size: 18px;
@@ -57,4 +62,13 @@
 }
 .ant-progress-inner {
   background: #cbcbcb;
+}
+
+h1 {
+  font-weight: 700 !important;
+}
+
+.ant-layout-content {
+  flex: auto;
+  height: auto;
 }

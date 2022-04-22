@@ -1,0 +1,35 @@
+.custom-input-upload input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: block !important;
+}
+
+.custom-input-upload {
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.custom-input-upload .ant-upload {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.custom-input-upload .ant-upload span {
+  color: white;
+  font-size: 23px;
+}
+
+.swapper:hover .ant-upload span,
+.swapper:hover img {
+  transition: 0.5s ease-in-out !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

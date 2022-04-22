@@ -57,14 +57,14 @@ export const SIDEBAR = [
 export const SIDEBAR_BOTTOM = [
   {
     id: "7",
-    title: "プロファイル",
+    title: "Username",
     icon: <div className="img" style={styles}></div>,
     link: "/dashboard/user",
   },
   {
     id: "8",
-    title: "",
+    title: "ログアウト",
     icon: <LoginOutlined />,
-    link: "/dashboard/file",
+    link: "/logout",
   },
 ];

@@ -5,6 +5,7 @@ import {
   Col,
   Form,
   Input,
+  message,
   Row,
   Select,
   Space,
@@ -57,15 +58,14 @@ const DATA_TWO = [
   },
 ];
 
-const USER_DATA = {
-  username: "グエンホアンサン",
-  birthday: "1996/01/01",
-  email: "example@gmail.com",
-  password: "••••••••••",
-};
-
 export default function () {
   const [text, setText] = useState("");
+  const [userData, setUserData] = useState({
+    username: "グエンホアンサン",
+    birthday: "1996/01/01",
+    email: "example@gmail.com",
+    password: "••••••••••",
+  });
 
   const [form] = Form.useForm();
 
@@ -74,22 +74,68 @@ export default function () {
     form.resetFields();
   };
 
-  const renderButtonSubmit = ({ values, resetFields, fields }) => {
+  const setUserDataFollowField = (fields, values) => {
+    if (fields.includes("firstName") && fields.includes("lastName")) {
+      setUserData({
+        ...userData,
+        username: `${values.firstName} ${values.lastName}`,
+      });
+      return handleNameEdit("");
+    }
+    if (
+      fields.includes("year") &&
+      fields.includes("day") &&
+      fields.includes("month")
+    ) {
+      setUserData({
+        ...userData,
+        birthday: `${values.year}/${values.month}/${values.day}`,
+      });
+      return handleNameEdit("");
+    }
+    if (fields.includes("email")) {
+      setUserData({
+        ...userData,
+        email: `${values.email}`,
+      });
+      return handleNameEdit("");
+    }
+    if (
+      fields.includes("newPass") &&
+      fields.includes("oldPass") &&
+      fields.includes("confirmPass")
+    ) {
+      if (values.newPass === values.confirmPass) {
+        setUserData({
+          ...userData,
+          password: Array(values.newPass.length)
+            .fill("*")
+            .toString()
+            .replaceAll(",", ""),
+        });
+        return handleNameEdit("");
+      }
+      return message.error("confirm password not match!");
+    }
+  };
+
+  const renderButtonSubmit = ({ values, resetFields, fields, errors }) => {
     return (
       <Form.Item wrapperCol={{ span: 23 }}>
         <Row>
           <Col xs={5} xl={2} offset={4}>
-            {Object.values(values).every((x) => x !== undefined) &&
-              Object.values(values).length === fields.length && (
-                <Button
-                  htmlType="submit"
-                  type="text"
-                  danger
-                  onClick={() => resetFields(fields)}
-                >
-                  キャンセル
-                </Button>
-              )}
+            <Button
+              htmlType="submit"
+              type="text"
+              danger
+              onClick={() => {
+                resetFields(fields);
+                handleNameEdit("");
+                return;
+              }}
+            >
+              キャンセル
+            </Button>
           </Col>
           <Col xs={5} xl={4}>
             <Button
@@ -102,8 +148,18 @@ export default function () {
                 color: "#ffffff",
               }}
               onClick={() => {
-                if (!values.firstName && !values.lastName) return;
-                return handleNameEdit("");
+                if (errors && errors.length && errors[0].length) {
+                  return;
+                }
+                if (
+                  Object.values(values).every((x) => x !== undefined) &&
+                  Object.values(values).length === fields.length
+                ) {
+                  setUserDataFollowField(fields, values);
+                  return;
+                }
+                message.error("please input your all field");
+                return;
               }}
             >
               保存
@@ -123,35 +179,22 @@ export default function () {
           labelCol={{ span: 1, offset: 1 }}
           wrapperCol={{ span: 3, offset: 2 }}
           autoComplete="off"
+          initialValues={{ firstName: "", lastName: "" }}
         >
           {(values, formInstance) => {
+            const { firstName, lastName } = values;
             const { resetFields } = formInstance;
             return (
               <>
-                <Form.Item
-                  label="苗字"
-                  name="firstName"
-                  rules={[
-                    { required: true, message: "Please input your 苗字" },
-                  ]}
-                >
+                <Form.Item label="苗字" name="firstName">
                   <Input type="text" value={values.firstName} />
                 </Form.Item>
 
-                <Form.Item
-                  label="ファーストネーム"
-                  name="lastName"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input your ファーストネーム",
-                    },
-                  ]}
-                >
+                <Form.Item label="ファーストネーム" name="lastName">
                   <Input type="text" value={values.lastName} />
                 </Form.Item>
                 {renderButtonSubmit({
-                  values,
+                  values: { firstName, lastName },
                   resetFields,
                   fields: ["firstName", "lastName"],
                 })}
@@ -170,25 +213,18 @@ export default function () {
           wrapperCol={{ span: 5, offset: 4 }}
           autoComplete="off"
           form={form}
+          initialValues={{ year: "", month: "", day: "" }}
         >
           {(values, formInstance) => {
+            const { year, month, day } = values;
             const { resetFields } = formInstance;
             return (
               <>
                 <Row>
                   <Col offset={3} xs={10} xl={4}>
                     <Space size="small">
-                      <Form.Item
-                        name="year"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please input your year",
-                          },
-                        ]}
-                      >
+                      <Form.Item name="year">
                         <Select
-                          defaultValue=""
                           style={{ width: 80 }}
                           name="year"
                           value={values.year}
@@ -201,17 +237,8 @@ export default function () {
                         </Select>
                       </Form.Item>
 
-                      <Form.Item
-                        name="month"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please input your month",
-                          },
-                        ]}
-                      >
+                      <Form.Item name="month">
                         <Select
-                          defaultValue=""
                           style={{ width: 80 }}
                           name="month"
                           value={values.month}
@@ -224,17 +251,8 @@ export default function () {
                         </Select>
                       </Form.Item>
 
-                      <Form.Item
-                        name="day"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Please input your day",
-                          },
-                        ]}
-                      >
+                      <Form.Item name="day">
                         <Select
-                          defaultValue=""
                           style={{ width: 80 }}
                           name="day"
                           value={values.day}
@@ -251,7 +269,11 @@ export default function () {
                 </Row>
 
                 {renderButtonSubmit({
-                  values,
+                  values: {
+                    year,
+                    month,
+                    day,
+                  },
                   resetFields,
                   fields: ["year", "month", "day"],
                 })}
@@ -270,8 +292,10 @@ export default function () {
           wrapperCol={{ span: 5, offset: 4 }}
           autoComplete="off"
           form={form}
+          initialValues={{ email: "" }}
         >
           {(values, formInstance) => {
+            const { email } = values;
             const { getFieldError, resetFields } = formInstance;
             return (
               <>
@@ -281,10 +305,6 @@ export default function () {
                     {
                       type: "email",
                       message: " the input is not valid E-mail",
-                    },
-                    {
-                      required: true,
-                      message: "Please input your E-mail",
                     },
                   ]}
                 >
@@ -302,9 +322,10 @@ export default function () {
                 </Form.Item>
 
                 {renderButtonSubmit({
-                  values,
+                  values: { email },
                   resetFields,
                   fields: ["email"],
+                  errors: getFieldError("email"),
                 })}
               </>
             );
@@ -319,37 +340,20 @@ export default function () {
           style={{ marginTop: "20px" }}
           name="basic"
           labelCol={{ span: 1, offset: 1 }}
-          wrapperCol={{ span: 4, offset: 2 }}
+          wrapperCol={{ span: 3, offset: 2 }}
           autoComplete="off"
+          initialValues={{ newPass: "", oldPass: "", confirmPass: "" }}
         >
           {(values, formInstance) => {
+            const { newPass, oldPass, confirmPass } = values;
             const { resetFields } = formInstance;
             return (
               <>
-                <Form.Item
-                  label="現在のパスワード"
-                  name="oldPass"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input your 現在のパスワード",
-                    },
-                  ]}
-                >
+                <Form.Item label="現在のパスワード" name="oldPass">
                   <Input type="password" />
                 </Form.Item>
 
-                <Form.Item
-                  label="新しいパスワード"
-                  name="newPass"
-                  rules={[
-                    {
-                      required: true,
-                      message: "Please input your 新しいパスワード",
-                    },
-                  ]}
-                  hasFeedback
-                >
+                <Form.Item label="新しいパスワード" name="newPass" hasFeedback>
                   <Input type="password" />
                 </Form.Item>
 
@@ -358,10 +362,6 @@ export default function () {
                   name="confirmPass"
                   dependencies={["newPass"]}
                   rules={[
-                    {
-                      required: true,
-                      message: "Please input your 新しいパスワードを確認!",
-                    },
                     ({ getFieldValue }) => ({
                       validator(_, value) {
                         if (!value || getFieldValue("newPass") === value) {
@@ -381,7 +381,7 @@ export default function () {
                 </Form.Item>
 
                 {renderButtonSubmit({
-                  values,
+                  values: { newPass, oldPass, confirmPass },
                   resetFields,
                   fields: ["oldPass", "newPass", "confirmPass"],
                 })}
@@ -420,9 +420,9 @@ export default function () {
   };
 
   const renderContentEdit = (obj) => {
-    if (!text && obj.name !== text) return <span>{USER_DATA[obj.name]}</span>;
+    if (!text && obj.name !== text) return <span>{userData[obj.name]}</span>;
     if (text && obj.name !== text) {
-      return <span>{USER_DATA[obj.name]}</span>;
+      return <span>{userData[obj.name]}</span>;
     }
     return <span style={{ color: "gray" }}>{obj.titleEdit}</span>;
   };
