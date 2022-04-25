@@ -14,16 +14,11 @@ export default function DashboardSidebar({ collapsed, toggle }) {
 
   const renderMenuItem = (sidebars) => {
     if (!sidebars && !sidebars.length) return null;
+    const isSelected = (
+      sidebars.findIndex((x) => x.link === location.pathname) + 1
+    ).toString();
     return (
-      <Menu
-        theme="white"
-        mode="inline"
-        defaultSelectedKeys={[
-          (
-            sidebars.findIndex((x) => x.link === location.pathname) + 1
-          ).toString(),
-        ]}
-      >
+      <Menu theme="white" mode="inline" defaultSelectedKeys={[isSelected]}>
         {sidebars.map((v) => (
           <Menu.Item key={v.id} icon={v.icon}>
             {v.link === "/logout" ? (
