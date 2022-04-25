@@ -4,7 +4,7 @@ import ChatBox from "./ChatBotComponent/ChatBox";
 import ChatBoxUI from "./ChatBotComponent/ChatBoxUI";
 import Header from "./ChatBotComponent/Header";
 
-export default function () {
+export default function ChatBotSettings() {
   return (
     <Row gutter={[12, 12]}>
       <Col span={24}>

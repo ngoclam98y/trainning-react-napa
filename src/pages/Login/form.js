@@ -9,7 +9,7 @@ const styles = {
   alignItems: "center",
 };
 
-export default function () {
+export default function FormLogin() {
   const navigation = useNavigate();
 
   const onFinish = (values) => {

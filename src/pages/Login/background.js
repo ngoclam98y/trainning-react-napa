@@ -7,6 +7,6 @@ const styles = {
   backgroundSize: "cover",
 };
 
-export default function () {
+export default function Background() {
   return <Col span={16} style={styles}></Col>;
 }

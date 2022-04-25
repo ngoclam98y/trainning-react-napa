@@ -2,7 +2,7 @@ import { Col, Row } from "antd";
 import ChatBotSetting from "./ChatBotSetting";
 import EmbeddedLink from "./EmbeddedLink";
 
-export default function () {
+export default function Settings() {
   return (
     <Row gutter={[0, 32]}>
       <Col span={23}>

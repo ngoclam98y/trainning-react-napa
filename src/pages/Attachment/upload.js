@@ -34,7 +34,7 @@ const FILE_DATA = [
   },
 ];
 
-export default function (props) {
+export default function UploadAttachment(props) {
   const renderListFile = (arrays) => {
     return (
       arrays &&

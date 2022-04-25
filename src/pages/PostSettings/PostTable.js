@@ -42,7 +42,6 @@ const DATA_TABLE = [
     createdAt: "2022/01/25",
     key: 2,
   },
-  ,
   {
     postList: "テーマ③",
     start: false,
@@ -69,7 +68,7 @@ const DATA_TABLE = [
   },
 ];
 
-export default function () {
+export default function PostTable() {
   const renderEmpty = (dataTables) => {
     return (
       dataTables &&

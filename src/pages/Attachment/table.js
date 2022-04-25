@@ -89,7 +89,7 @@ const data = [
   },
 ];
 
-export default function () {
+export default function TableAttachment() {
   const [dataTable, setDataTable] = useState([...data]);
 
   const columns = [

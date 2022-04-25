@@ -1,6 +1,6 @@
 import { Col, Input, Row } from "antd";
 
-export default function () {
+export default function Header() {
   return (
     <Col span={24}>
       <h1>ヘッダ</h1>

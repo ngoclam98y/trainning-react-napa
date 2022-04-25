@@ -6,7 +6,7 @@ const { Content } = Layout;
 
 const styles = { height: "100%", display: "flex" };
 
-export default function () {
+export default function Login() {
   return (
     <Content style={styles}>
       <Background />

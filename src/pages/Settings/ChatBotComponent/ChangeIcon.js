@@ -3,7 +3,7 @@ import { Button, Col, Row, Space, Upload } from "antd";
 import CloseIcon from "../../../assets/close.png";
 import "./ChangeIcon.css";
 
-export default function () {
+export default function ChangeIcon() {
   return (
     <Col span={24}>
       <h1>アイコンの変更</h1>
@@ -46,6 +46,7 @@ export default function () {
                     visibility: "hidden",
                     transition: "0.5s ease-in-out",
                   }}
+                  alt="..."
                   src={CloseIcon}
                 />
               </div>

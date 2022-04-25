@@ -1,7 +1,7 @@
 import { Col, Row } from "antd";
 import PostTable from "./PostTable";
 
-export default function () {
+export default function PostSettings() {
   return (
     <Row gutter={[0, 32]}>
       <Col span={24}>

@@ -4,7 +4,7 @@ import Logo from "../../assets/logo.png";
 import { SIDEBAR, SIDEBAR_BOTTOM } from "../../_mocks_/sidebar";
 const { Sider } = Layout;
 
-export default function ({ collapsed, toggle }) {
+export default function DashboardSidebar({ collapsed, toggle }) {
   const location = useLocation();
   const navigation = useNavigate();
   const handleLogout = () => {

@@ -9,11 +9,8 @@ import {
   Row,
   Select,
   Space,
-  Typography,
 } from "antd";
 import { useState } from "react";
-
-const { Text } = Typography;
 
 const { Option } = Select;
 
@@ -58,7 +55,7 @@ const DATA_TWO = [
   },
 ];
 
-export default function () {
+export default function User() {
   const [text, setText] = useState("");
   const [userData, setUserData] = useState({
     username: "グエンホアンサン",

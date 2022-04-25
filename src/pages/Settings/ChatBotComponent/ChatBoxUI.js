@@ -1,7 +1,7 @@
 import { LineOutlined, SendOutlined } from "@ant-design/icons";
 import { Avatar, Input } from "antd";
 
-export default function () {
+export default function ChatBoxUI() {
   return (
     <div className="chat" style={{ width: "382px", height: "525px" }}>
       <div

@@ -12,7 +12,7 @@ const styleContent = {
   paddingLeft: "120px",
 };
 
-export default function () {
+export default function LayoutDashboard() {
   const [collapsed, setCollapsed] = useState(true);
 
   const toggle = () => {

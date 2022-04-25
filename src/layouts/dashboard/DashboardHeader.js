@@ -10,7 +10,7 @@ const styleHeader = {
   backgroundColor: BACKGROUND.COLOR,
 };
 
-export default function () {
+export default function DashboardHeader() {
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };

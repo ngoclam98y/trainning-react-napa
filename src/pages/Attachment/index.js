@@ -2,7 +2,7 @@ import { Col, Row } from "antd";
 import Table from "./table";
 import Upload from "./upload";
 
-export default function () {
+export default function Attachment() {
   return (
     <Row gutter={[0, 32]}>
       <Col span={24}>

@@ -1,6 +1,6 @@
 import { Col, Input, Row } from "antd";
 
-export default function () {
+export default function ChatBox() {
   return (
     <Col span={24}>
       <h1>チャットボックス</h1>

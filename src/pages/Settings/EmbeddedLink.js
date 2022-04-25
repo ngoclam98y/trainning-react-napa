@@ -2,7 +2,7 @@ import { Button, Card, Col, Input, Row } from "antd";
 
 const link = `<script src="https://localhost:8443/chatbot/forLP.js" charset="UTF-8" tenant-id="cc88883ebffbe99bfda924c637edd315" url-page-counter="google.com"></script>`;
 
-export default function () {
+export default function EmbeddedLink() {
   return (
     <Row gutter={[12, 12]}>
       <Col span={24}>
