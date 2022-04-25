@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, useRoutes } from "react-router-dom";
 import Attachment from "./pages/Attachment";
+import PostSettings from "./pages/PostSettings";
 import Settings from "./pages/Settings";
 
 const Login = React.lazy(() => import("./pages/Login"));
@@ -50,7 +51,7 @@ export default function Router() {
           path: "update-setting",
           element: (
             <ProtectedRoute redirectPath="/login" isAllowed={isLogin}>
-              <h1>Update setting</h1>
+              <PostSettings />
             </ProtectedRoute>
           ),
         },

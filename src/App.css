@@ -72,3 +72,15 @@ h1 {
   flex: auto;
   height: auto;
 }
+
+thead tr th {
+  background: white !important;
+}
+
+thead tr th::before {
+  background: white !important;
+}
+
+.table-post tr th {
+  border-bottom: white !important;
+}
