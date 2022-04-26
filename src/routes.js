@@ -17,7 +17,7 @@ function ProtectedRoute({ isAllowed, redirectPath = "/login", children }) {
 }
 
 export default function Router() {
-  const isLogin = JSON.parse(window.localStorage.getItem("isLogin")) || false;
+  const isLogin = false;
   return useRoutes([
     {
       path: "/dashboard",
