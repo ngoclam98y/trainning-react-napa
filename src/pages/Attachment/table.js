@@ -1,29 +1,29 @@
 // import { DeleteOutlined } from "@ant-design/icons";
 // import { Popconfirm, Table, Typography } from "antd";
 import { Table } from "antd";
-
 // import { useState } from "react";
-// import { default as Docx, default as Mp4 } from "../../assets/docx.png";
-// import Jpg from "../../assets/jpg.png";
-// import Zip from "../../assets/zip.png";
+import { default as Docx, default as Mp4 } from "../../assets/docx.png";
+import Jpg from "../../assets/jpg.png";
+import Zip from "../../assets/zip.png";
+
 // const { Text } = Typography;
 
 // const text = "Are you sure to delete this file?";
 
-// export const fileIcon = (fileName) => {
-//   if (fileName.includes(".docx")) {
-//     return <img src={Docx} alt="" style={{ marginRight: "10px" }} />;
-//   }
-//   if (fileName.includes(".jpg")) {
-//     return <img src={Jpg} alt="" style={{ marginRight: "10px" }} />;
-//   }
-//   if (fileName.includes(".zip")) {
-//     return <img src={Zip} alt="" style={{ marginRight: "10px" }} />;
-//   }
-//   if (fileName.includes(".mp4")) {
-//     return <img src={Mp4} alt="" style={{ marginRight: "10px" }} />;
-//   }
-// };
+export const fileIcon = (fileName) => {
+  if (fileName.includes(".docx")) {
+    return <img src={Docx} alt="" style={{ marginRight: "10px" }} />;
+  }
+  if (fileName.includes(".jpg")) {
+    return <img src={Jpg} alt="" style={{ marginRight: "10px" }} />;
+  }
+  if (fileName.includes(".zip")) {
+    return <img src={Zip} alt="" style={{ marginRight: "10px" }} />;
+  }
+  if (fileName.includes(".mp4")) {
+    return <img src={Mp4} alt="" style={{ marginRight: "10px" }} />;
+  }
+};
 
 // const data = [
 //   {
