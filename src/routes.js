@@ -5,8 +5,8 @@ import { Navigate, useRoutes } from "react-router-dom";
 // import Settings from "./pages/Settings";
 
 // const Login = React.lazy(() => import("./pages/Login"));
-const LayoutDashBoard = React.lazy(() => import("./layouts/dashboard"));
-const UserPage = React.lazy(() => import("./pages/User"));
+// const LayoutDashBoard = React.lazy(() => import("./layouts/dashboard"));
+// const UserPage = React.lazy(() => import("./pages/User"));
 
 function ProtectedRoute({ isAllowed, redirectPath = "/login", children }) {
   if (!isAllowed) {
@@ -17,20 +17,20 @@ function ProtectedRoute({ isAllowed, redirectPath = "/login", children }) {
 }
 
 export default function Router() {
-  const isLogin = JSON.parse(window.localStorage.getItem("isLogin")) || false;
+  // const isLogin = JSON.parse(window.localStorage.getItem("isLogin")) || false;
   return useRoutes([
     {
       path: "/dashboard",
-      element: <LayoutDashBoard />,
+      element: () => <h1>aaaaaaaaaa</h1>,
       children: [
-        {
-          path: "user",
-          element: (
-            <ProtectedRoute redirectPath="/login" isAllowed={isLogin}>
-              aaa
-            </ProtectedRoute>
-          ),
-        },
+        // {
+        //   path: "user",
+        //   element: (
+        //     <ProtectedRoute redirectPath="/login" isAllowed={isLogin}>
+        //       <UserPage />
+        //     </ProtectedRoute>
+        //   ),
+        // },
         // {
         //   path: "file",
         //   element: (
